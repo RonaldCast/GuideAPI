@@ -19,6 +19,11 @@ namespace GuideAPI.Controllers
             _typepographyService = typepographyService;
         }
 
+        /// <summary>
+        /// Get List of Typepography for ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET styleSheet/5/Typography
         [HttpGet("styleSheet/{id}/Typepography")]
         public async Task<ActionResult<IEnumerable<Typepography>>> Get(int id)
@@ -32,6 +37,12 @@ namespace GuideAPI.Controllers
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="idTypegraphy"></param>
+        /// <returns></returns>
         // GET styleSheet/5/Typography/1
         [HttpGet("styleSheet/{id}/Typepography/{idTypegraphy}")]
         public async Task<ActionResult<Typepography>> Get(int id, int idTypegraphy)

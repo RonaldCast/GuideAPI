@@ -14,11 +14,15 @@ namespace GuideAPI.Controllers
     public class StyleSheetController : ControllerBase
     {
         public readonly IStyleSheetService _styleSheetService;
-
         public StyleSheetController(IStyleSheetService styleSheetService)
         {
             _styleSheetService = styleSheetService;
         }
+
+        /// <summary>
+        /// Return List of de styleSheet 
+        /// </summary>
+        /// <returns></returns>
         // GET /stylesheet
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StyleSheet>>> Get()
@@ -33,6 +37,11 @@ namespace GuideAPI.Controllers
             );
         }
 
+        /// <summary>
+        /// Get one list of stylesheet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET /stylesheet/:id
         [HttpGet("{id}")]
         public async Task<ActionResult<StyleSheet>> Get(int id)
@@ -45,6 +54,11 @@ namespace GuideAPI.Controllers
             return styleSheel;
         }
 
+        /// <summary>
+        /// Create list styleSheet
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         // POST /stylesheet
         [HttpPost]
         public async Task<ActionResult<StyleSheet>> Post([FromBody] StyleSheet model)
@@ -54,6 +68,12 @@ namespace GuideAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = model.Id }, model);
         }
 
+        /// <summary>
+        /// Updated list styleSheet for id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         // PUT /stylesheet/:id
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] StyleSheet model)
@@ -75,6 +95,11 @@ namespace GuideAPI.Controllers
         }
 
         // DELETE /stylesheet/:id
+        /// <summary>
+        /// Delete styleSheet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
